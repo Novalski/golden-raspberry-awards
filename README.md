@@ -1,3 +1,5 @@
+# golden-raspberry-awards
+Small app to consume and show data from Golden Raspberry Awards 
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
