@@ -1,9 +1,11 @@
 import React from 'react';
 
+import { Heading } from '@chakra-ui/react';
+
 function App() {
   return (
     <div>
-      <h1>Brand New App</h1>
+      <Heading>Brand New App</Heading>
     </div>
   );
 }

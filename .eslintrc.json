@@ -62,6 +62,7 @@
       {
         "newlinesBetween": "always",
         "groups": [
+          ["/^react/", "/^redux/"],
           "module",
           "/^@shared/",
           [
