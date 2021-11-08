@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { Button, Flex, VStack } from '@chakra-ui/react';
 
-type Routes = '/' | '/list';
+import { Routes } from '../../routes/types';
 
 const SideMenu: React.FC = () => {
   const navigate = useNavigate();

@@ -16,11 +16,11 @@ export const Container = styled.div`
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      margin: 5px;
-      width: 10px;
+      margin: 0.3em;
+      width: 1em;
       height: 10px;
       border: 3px solid var(--chakra-colors-blue-500);
-      padding: 15px;
+      padding: 0.7em;
       color: var(--chakra-colors-blue-700);
       border-radius: 3px;
 
@@ -43,11 +43,11 @@ export const Container = styled.div`
       }
 
       &.next {
-        min-width: 50px;
+        min-width: 2em;
       }
 
       &.previous {
-        min-width: 50px;
+        min-width: 2em;
       }
     }
   }

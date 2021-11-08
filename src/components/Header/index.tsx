@@ -1,24 +1,30 @@
 import React from 'react';
 
-import { Flex, Heading } from '@chakra-ui/react';
+import { Flex, Heading, useBreakpointValue } from '@chakra-ui/react';
+
+import MenuDropdown from '../MenuDropdown';
 
 const Header: React.FC = () => {
+  const showMenu = useBreakpointValue({
+    lg: false,
+    md: true,
+    sm: true,
+  });
+
   return (
     <Flex
       as="nav"
-      align="center"
-      justify="center"
+      alignItems="center"
+      justifyContent={showMenu ? 'flex-start' : 'center'}
       padding={5}
       bg="blue.500"
-      color="white"
       w="100vw"
       pos="sticky"
     >
-      <Flex align="center" mr={5}>
-        <Heading as="h2" size="lg" letterSpacing="tighter">
-          {process.env.REACT_APP_TITLE}
-        </Heading>
-      </Flex>
+      {showMenu && <MenuDropdown />}
+      <Heading as="h2" size="lg" letterSpacing="tighter" color="white">
+        {process.env.REACT_APP_TITLE}
+      </Heading>
     </Flex>
   );
 };

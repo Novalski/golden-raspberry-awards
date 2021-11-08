@@ -27,7 +27,6 @@ const List: React.FC = () => {
   }, []);
 
   const filterHandler = useCallback((filter: IMovieFilters) => {
-    console.log('FILTERS', filter);
     setFilters(current => ({ ...current, ...filter }));
   }, []);
 
@@ -47,7 +46,7 @@ const List: React.FC = () => {
             pageCount={data.pagination.totalPages}
             containerClassName="movies-pagination"
             marginPagesDisplayed={3}
-            pageRangeDisplayed={5}
+            pageRangeDisplayed={3}
             onPageChange={({ selected }) => setPage(selected)}
           />
         </Container>

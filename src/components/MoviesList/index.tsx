@@ -34,7 +34,7 @@ const MoviesList: React.FC<IMoviesListProps> = ({ movies, filterHandler }) => {
 
       if (e.target.value.length < 4) return;
 
-      filterHandler({ year: parseInt(e.target.value, 10) });
+      filterHandler({ year: parseInt(e.target.value, 10), page: 0 });
     },
     [filterHandler],
   );
@@ -46,7 +46,7 @@ const MoviesList: React.FC<IMoviesListProps> = ({ movies, filterHandler }) => {
         return;
       }
 
-      filterHandler({ winner: e.target.value === 'true' });
+      filterHandler({ winner: e.target.value === 'true', page: 0 });
     },
     [filterHandler],
   );
