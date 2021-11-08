@@ -9,6 +9,7 @@ const Header: React.FC = () => {
     lg: false,
     md: true,
     sm: true,
+    base: true,
   });
 
   return (
@@ -22,7 +23,13 @@ const Header: React.FC = () => {
       pos="sticky"
     >
       {showMenu && <MenuDropdown />}
-      <Heading as="h2" size="lg" letterSpacing="tighter" color="white">
+      <Heading
+        as="h2"
+        size="lg"
+        letterSpacing="tighter"
+        color="white"
+        data-testid="heading"
+      >
         {process.env.REACT_APP_TITLE}
       </Heading>
     </Flex>

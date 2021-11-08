@@ -55,7 +55,6 @@ const MovieSearchTable: React.FC = () => {
   const selectYearChangeHandler = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
       const { value } = e.target;
-      console.log(value);
       setSelectedYear(parseInt(value, 10));
     },
     [],
@@ -68,6 +67,7 @@ const MovieSearchTable: React.FC = () => {
           maxW="480px"
           onChange={selectYearChangeHandler}
           placeholder="Select by year"
+          role="combobox"
         >
           {options.map(opt => (
             <option key={opt} value={opt}>
@@ -80,9 +80,16 @@ const MovieSearchTable: React.FC = () => {
           icon={<SearchIcon />}
           isLoading={loading}
           onClick={searchClickHandler}
+          role="button"
         />
       </Flex>
-      <Table variant="striped" colorScheme="twitter" size="sm">
+      <Table
+        variant="striped"
+        colorScheme="twitter"
+        size="sm"
+        data-testid="movies-table"
+        role="table"
+      >
         <Thead>
           <Tr>
             <Th>Id</Th>
@@ -92,7 +99,7 @@ const MovieSearchTable: React.FC = () => {
         </Thead>
         <Tbody>
           {movies.map(({ id, year, title }) => (
-            <Tr key={id}>
+            <Tr key={id} role="tablist">
               <Td>{id}</Td>
               <Td>{year}</Td>
               <Td>{title}</Td>

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useCallback } from 'react';
+import React, { ChangeEvent, useCallback, useRef } from 'react';
 
 import { CloseIcon } from '@chakra-ui/icons';
 import {
@@ -25,6 +25,8 @@ interface IMoviesListProps {
 }
 
 const MoviesList: React.FC<IMoviesListProps> = ({ movies, filterHandler }) => {
+  const yearInputRef = useRef<HTMLInputElement>(null);
+
   const onFilterYear = useCallback(
     (e: ChangeEvent<HTMLInputElement>) => {
       if (e.target.value.length === 0) {
@@ -51,6 +53,13 @@ const MoviesList: React.FC<IMoviesListProps> = ({ movies, filterHandler }) => {
     [filterHandler],
   );
 
+  const clearClickHandler = useCallback(() => {
+    if (yearInputRef.current) {
+      yearInputRef.current.value = '';
+      filterHandler({ year: undefined });
+    }
+  }, [filterHandler]);
+
   return (
     <Table variant="striped" colorScheme="twitter" size="sm" w="100%">
       <Thead>
@@ -76,14 +85,17 @@ const MoviesList: React.FC<IMoviesListProps> = ({ movies, filterHandler }) => {
                   type="number"
                   maxLength={4}
                   onChange={onFilterYear}
+                  ref={yearInputRef}
                 />
                 <InputRightElement>
                   <IconButton
                     aria-label="clear"
                     icon={<CloseIcon />}
                     size="sm"
-                    h={6}
+                    h={4}
+                    w={4}
                     marginRight={1}
+                    onClick={clearClickHandler}
                   />
                 </InputRightElement>
               </InputGroup>
